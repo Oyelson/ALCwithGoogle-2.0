@@ -134,8 +134,11 @@ function showContact(usersObject, username, change) {
 
 function showAllContacts(usersObject) {
     var no_of_users = '';
+    var no_users = 0;
     if (objectLen(usersObject) > 0){
-        no_of_users = objectLen(usersObject)  + ' ';
+        no_users = objectLen(usersObject);
+        no_of_users = (no_users > 1) ? no_users+" contacts" : no_users+" contact";
+        
     }
     var showAll = '\
         <h1 class="header-see flex-row-btw">\
@@ -143,7 +146,7 @@ function showAllContacts(usersObject) {
             <button class="add" onclick="showContactForm();">Add</button>\
         </h1 >\
         <div class="search-div flex-row-center">\
-            <input type="search" class="search-box" oninput="searchContacts(this)" placeholder="Search '+ no_of_users +'contacts" autofocus>\
+             <input type="search" class="search-box" oninput="searchContacts(this)" placeholder="Search '+ no_of_users +'" autofocus>\
             <div class="search-no" style="font-size:16px;"></div>\
         </div>\
         <div id="add_show_contacts">\
